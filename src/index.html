@@ -1,29 +1,228 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="./4geeks.ico" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles.css">
+
+    <title>Replicating Exact Form</title>
   </head>
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
+    <div class="container pt-3">
+        <div class="row">
+            <div class="col">
+                <div class="myborder">
+                    <form id="topForm" class="needs-validation" novalidate>
+                        <div class="form-row border bg-light">
+                            <div class="form-group col pt-1 pl-2"><h2>Payment form example</h1></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col d-none" id="warningDiv">
+                                <p>Some fields are missing</p>
+                            </div>
+                        </div>
+                        <div class="form-row pt-3">
+                            <div class="form-group col">
+                                    <label for="cardum">Card #</label>
+                                    <input  type="ccn" class="form-control" id="cardnum" aria-describedby="cardnum" placeholder="XXXXXXXXXXX" required>
+                            </div>
+                            <div class="form-group col">
+                                <label for="cvcnum">CVC #</label>
+                                <input type="text" class="form-control" id="cvcnum" aria-describedby="cvcnum" placeholder="000" required>
+                            </div>
+                            <div class="form-group col">
+                                <label for="amount">Amount</label>
+                                    <div class="input-group-prepend">
+                                        <h5>$</h5>
+                                        <input type="text" class="form-control" id="amount" aria-describedby="amount" placeholder="Amount" required>
+                                    </div>                         
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col">
+                                    <label for="fname">First Name</label>
+                                    <input type="text" class="form-control" id="fname" aria-describedby="fname">
+                            </div>
+                            <div class="form-group col">
+                                    <label for="lname">Last Name</label>
+                                    <input type="text" class="form-control" id="lname" aria-describedby="lname">
+                            </div>
+                                                
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col">
+                                    <label for="city">City</label>
+                                    <input type="text" class="form-control" id="city" aria-describedby="city">
+                            </div>
+                            <div class="form-group col-3">
+                                    <label for="exampleInputEmail1">State</label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected>Pick a state</option>
+                                        <option value="AL">Alabama</option>
+                                        <option value="AK">Alaska</option>
+                                        <option value="AZ">Arizona</option>
+                                        <option value="AR">Arkansas</option>
+                                        <option value="CA">California</option>
+                                        <option value="CO">Colorado</option>
+                                        <option value="CT">Connecticut</option>
+                                        <option value="DE">Delaware</option>
+                                        <option value="DC">District Of Columbia</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="GA">Georgia</option>
+                                        <option value="HI">Hawaii</option>
+                                        <option value="ID">Idaho</option>
+                                        <option value="IL">Illinois</option>
+                                        <option value="IN">Indiana</option>
+                                        <option value="IA">Iowa</option>
+                                        <option value="KS">Kansas</option>
+                                        <option value="KY">Kentucky</option>
+                                        <option value="LA">Louisiana</option>
+                                        <option value="ME">Maine</option>
+                                        <option value="MD">Maryland</option>
+                                        <option value="MA">Massachusetts</option>
+                                        <option value="MI">Michigan</option>
+                                        <option value="MN">Minnesota</option>
+                                        <option value="MS">Mississippi</option>
+                                        <option value="MO">Missouri</option>
+                                        <option value="MT">Montana</option>
+                                        <option value="NE">Nebraska</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="NH">New Hampshire</option>
+                                        <option value="NJ">New Jersey</option>
+                                        <option value="NM">New Mexico</option>
+                                        <option value="NY">New York</option>
+                                        <option value="NC">North Carolina</option>
+                                        <option value="ND">North Dakota</option>
+                                        <option value="OH">Ohio</option>
+                                        <option value="OK">Oklahoma</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="PA">Pennsylvania</option>
+                                        <option value="RI">Rhode Island</option>
+                                        <option value="SC">South Carolina</option>
+                                        <option value="SD">South Dakota</option>
+                                        <option value="TN">Tennessee</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="UT">Utah</option>
+                                        <option value="VT">Vermont</option>
+                                        <option value="VA">Virginia</option>
+                                        <option value="WA">Washington</option>
+                                        <option value="WV">West Virginia</option>
+                                        <option value="WI">Wisconsin</option>
+                                        <option value="WY">Wyoming</option>
+                                    </select>
+                            </div>
+                            <div class="form-group col-3">
+                                <label for="zip">Postal Code</label>
+                                <input type="text" class="form-control" id="zip" aria-describedby="zip">
+                        </div>
+                                                
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <p>We accept:</p>
+                                <span class="bg-secondary text-light rounded-sm p-1">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="mastercard" name="cctype" class="custom-control-input">
+                                        <label class="custom-control-label" for="mastercard">
+                                            <i class="fa-brands fa-cc-mastercard"></i>
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="visa" name="cctype" class="custom-control-input">
+                                        <label class="custom-control-label" for="visa">
+                                            <i class="fa-brands fa-cc-visa"></i>
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="dinersclub" name="cctype" class="custom-control-input">
+                                        <label class="custom-control-label" for="dinersclub">
+                                            <i class="fa-brands fa-cc-diners-club"></i>
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="amex" name="cctype" class="custom-control-input">
+                                        <label class="custom-control-label" for="amex">
+                                            <i class="fa-brands fa-cc-amex"></i>
+                                        </label>
+                                    </div>
+                                </span>
+                                
+                            </div>
+                            <div class="form-group col">
+                                <label for="message">Message:</label>
+                                <textarea class="form-control" id="message" rows="3"></textarea>
+                                <small id="messageHelp" class="form-text text-muted">Add any notes here.</small>
+                            </div>
+                        
+                            
+
+                        </div>
+
+                        <div class="form-row bg-light border pt-2">
+                            <div class="col-9"></div>
+                            <div class="form-group col d-flex align-self-center">
+                                <button type="reset" class="btn btn-secondary">Cancel</button>
+                            </div>
+                            <div class="form-group col d-flex align-self-end">
+                                <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                                
+                        </div>
+                        
+                    </form>
+                </div>        
+            </div>                        
+        </div>
+                
+                
+            </div>
+        </div>
+        <div class="row"></div>
     </div>
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome Script Goes here-->
+    <script src="https://kit.fontawesome.com/7c8470ea5c.js" crossorigin="anonymous"></script>
+
+    <!-- Form validation script below-->
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+        </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
   </body>
 </html>
