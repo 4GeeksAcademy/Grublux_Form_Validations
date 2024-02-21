@@ -10,9 +10,15 @@ import "./assets/img/4geeks.ico";
 //   console.log("Hello Rigo from the console!");
 // };
 
-const getSubmitButton = document.querySelector("#submitButton");
+const warningDiv = document.querySelector("#warningDiv");
 
-const getForm = document.querySelector("#topForm");
+const showWarningDiv = message => {
+  warningDiv.classList.remove("d-none");
+  warningDiv.classList.add("myStyle");
+  warningDiv.innerHTML += message;
+};
+
+const getSubmitButton = document.querySelector("#submitButton");
 
 const cardnum = document.querySelector("#cardnum");
 const cvcnum = document.querySelector("#cvcnum");
@@ -21,6 +27,10 @@ const fname = document.querySelector("#fname");
 const lname = document.querySelector("#lname");
 const city = document.querySelector("#city");
 const state = document.querySelector("#inputState");
+const zip = document.querySelector("#zip");
+const radio = document.querySelectorAll(".radio");
+const radioSpan = document.querySelector("#radioSpan");
+var message = "";
 
 getSubmitButton.addEventListener("click", e => {
   e.preventDefault();
@@ -29,15 +39,17 @@ getSubmitButton.addEventListener("click", e => {
   });
   if (cardnum.value.length != 16) {
     cardnum.classList.add("warning");
-    console.log("Credit number must be 16 digits");
+    message = "Credit card number must be 16 digits, ";
+    showWarningDiv(message);
   }
   if (cvcnum.value.length != 3) {
     cvcnum.classList.add("warning");
-    console.log("CVC number must be 3 digits");
+    message = "CVC number must be 3 digits, ";
+    showWarningDiv(message);
   }
-  if (amount.value == "") {
+  if (amount.value < 1) {
     amount.classList.add("warning");
-    console.log("You must input a value!");
+    console.log("You must input an amount!");
   }
   if (fname.value.length < 2) {
     fname.classList.add("warning");
@@ -55,15 +67,17 @@ getSubmitButton.addEventListener("click", e => {
     state.classList.add("warning");
     console.log("You must choose a state");
   }
+  if (zip.value.length != 5) {
+    zip.classList.add("warning");
+    console.log("Zip must be 5 digits");
+  }
+  if (
+    radio[0].checked == false &&
+    radio[1].checked == false &&
+    radio[2].checked == false &&
+    radio[3].checked == false
+  ) {
+    radioSpan.classList.add("warningBorder");
+    console.log("You must choose a card type");
+  }
 });
-
-// const submit = e => {
-//   console.log("Submit button clicked");
-//   e.preventDefault();
-// };
-
-// var getForm = document.querySelector("#topForm");
-// if ((getForm.element.className = "was-validated")) {
-//   var element = document.querySelector("#warningDiv");
-//   element.classList.add("mystyle");
-// }
