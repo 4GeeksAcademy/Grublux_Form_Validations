@@ -5,12 +5,11 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-// window.onload = function() {
-//   //write your code here
-//   console.log("Hello Rigo from the console!");
-// };
+//get the warning div w/ the DOM
 
 const warningDiv = document.querySelector("#warningDiv");
+
+//arrow function to print the warning message and switch the class so the warningDiv can display and be red
 
 const showWarningDiv = message => {
   warningDiv.classList.remove("d-none");
@@ -18,8 +17,9 @@ const showWarningDiv = message => {
   warningDiv.innerHTML += message;
 };
 
-const getSubmitButton = document.querySelector("#submitButton");
+// a bunch of const defintions below
 
+const getSubmitButton = document.querySelector("#submitButton");
 const cardnum = document.querySelector("#cardnum");
 const cvcnum = document.querySelector("#cvcnum");
 const amount = document.querySelector("#amount");
@@ -32,10 +32,15 @@ const radio = document.querySelectorAll(".radio");
 const radioSpan = document.querySelector("#radioSpan");
 var message = "";
 
+//create big ass function that is submit button linstener
+
 getSubmitButton.addEventListener("click", e => {
   e.preventDefault();
   document.querySelectorAll(".warning").forEach(element => {
     element.classList.remove("warning");
+    warningDiv.innerHTML = "";
+    warningDiv.classList.remove("myStyle");
+    radioSpan.classList.remove("warningBorder");
   });
   if (cardnum.value.length != 16) {
     cardnum.classList.add("warning");
@@ -49,27 +54,33 @@ getSubmitButton.addEventListener("click", e => {
   }
   if (amount.value < 1) {
     amount.classList.add("warning");
-    console.log("You must input an amount!");
+    message = "You must input an amount! ";
+    showWarningDiv(message);
   }
   if (fname.value.length < 2) {
     fname.classList.add("warning");
-    console.log("A first name must have at least 2 characters");
+    message = "A first name must have at least 2 characters, ";
+    showWarningDiv(message);
   }
   if (lname.value.length < 1) {
     lname.classList.add("warning");
-    console.log("Last name cannot be empty!");
+    message = "Last name cannot be empty! ";
+    showWarningDiv(message);
   }
   if (city.value == "") {
     city.classList.add("warning");
-    console.log("You must write in a city");
+    message = "You must write in a city, ";
+    showWarningDiv(message);
   }
   if (state.value == "Pick a state") {
     state.classList.add("warning");
-    console.log("You must choose a state");
+    message = "You must choose a state, ";
+    showWarningDiv(message);
   }
   if (zip.value.length != 5) {
     zip.classList.add("warning");
-    console.log("Zip must be 5 digits");
+    message = "Zip must be 5 digits, ";
+    showWarningDiv(message);
   }
   if (
     radio[0].checked == false &&
@@ -78,6 +89,9 @@ getSubmitButton.addEventListener("click", e => {
     radio[3].checked == false
   ) {
     radioSpan.classList.add("warningBorder");
-    console.log("You must choose a card type");
+    message = "You must choose a card type, ";
+    showWarningDiv(message);
+  } else {
+    console.log("you did it!");
   }
 });
